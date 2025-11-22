@@ -1,0 +1,8 @@
+steps:
+  - name: 'hashicorp/terraform'
+    entrypoint: 'sh'
+    args:
+      - '-c'
+      - |
+        terraform -chdir=environments/nonprod init
+        terraform -chdir=environments/nonprod apply -auto-approve -var="project_id=$PROJECT_ID"
